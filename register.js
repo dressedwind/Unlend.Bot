@@ -1,28 +1,28 @@
-let name = document.querySelector('#name');
-let password = document.querySelector('#password');
-let submit = document.querySelector('#submit');
+let submitButton = document.getElementById("submit");
+let nameInput = document.getElementById("name");
+let passwordInput = document.getElementById("password");
 
-let users = {}; // Создаем пустой объект для хранения пользователей
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault(); // Предотвращаем отправку формы
 
-function User(name, password) {
-    this.name = name;
-    this.password = password;
-}
+    let name = nameInput.value;
+    let password = passwordInput.value;
 
-function createId(users) {
-    return Object.keys(users).length;
-}
+    if (name.trim() === "" || password.trim() === "") {
+        alert("Пожалуйста, заполните все поля.");
+        return;
+    }
 
-submit.addEventListener('click', () => {
-    const nameUser = name.value;
-    const passwordUser = password.value;
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "register.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    const user = new User(nameUser, passwordUser);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            alert(xhr.responseText);
+        }
+    };
 
-    const userId = 'User' + createId(users);
-    users[userId] = user;
-
-    console.log(user); // Выводим созданного пользователя в консоль
-
-    alert(`${nameUser}, вы успешно зарегестрированы`);
+    let data = "name=" + encodeURIComponent(name) + "&password=" + encodeURIComponent(password);
+    xhr.send(data);
 });
