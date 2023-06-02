@@ -5,27 +5,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Css/Form.css">
-        <link rel="website icon" type="jpg" href="Image/logo.jpg">
+        <link rel="icon" type="image/jpeg" href="Image/logo.jpg">
         <title>Log In</title>
     </head>
-  <body>
-    <img id="centered-image" src="Image/logo.png" alt="logo.png">
-    <form action="">
-      <h1 title="Форма регистрации на сайте">Зарегистрироваться</h1>
-      <div class="group">
-        <label for="">Имя   </label>
-        <input type="text" name="name" required>
-      </div>
-      <div class="group">
-        <label for="">Пароль</label>
-        <input type="password" name="password" required>
-      </div>
-      <div>
-        <a href="ule.html"> <label for="">Правила Банка</label> </a>
-      </div>
-      <div>
-        <center><button class="button" type="submit">Регистрация</button></center>
-      </div>
-    </form>
-  </body>
+    <body>
+        <img id="centered-image" src="Image/logo.png" alt="logo.png">
+        <form>
+            <h1 title="Форма регистрации на сайте">Зарегистрироваться</h1>
+            <div class="group">
+                <label for="name">Имя</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="group">
+                <label for="password">Пароль</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="forget">
+              <label for="checkbox">ВЫ СОГЛАСНЫ С <a href="Rule.html">ПРАВИЛАМИ?</a></label>
+              <input type="checkbox">
+          </div>
+            <div>
+                <center><button class="button" type="submit" id="submit">Регистрация</button></center>
+            </div>
+            <script src="register.js"></script>
+        </form>
+    </body>
 </html>
